@@ -6,7 +6,7 @@
  Функция должна принимать один аргумент и возвращать его
  */
 function returnFirstArgument(arg) {
-	return arg;
+    return arg;
 }
 
 /*
@@ -16,10 +16,11 @@ function returnFirstArgument(arg) {
  Значение по умолчанию второго аргумента должно быть 100
  */
 function defaultParameterValue(a, b) {
-	if(typeof b != "number") {
-		b = 100;
-	}
-	return a + b;
+    if (typeof b != 'number') {
+        b = 100;
+    }
+    
+    return a + b;
 }
 
 /*
@@ -29,11 +30,13 @@ function defaultParameterValue(a, b) {
  Количество переданных аргументов заранее неизвестно
  */
 function returnArgumentsArray() {
-	var args = [];
-	for (var i = 0; i < arguments.length; i++) {
-	  args[i] = arguments[i];
-	}
-	return args;
+    var args = [];
+
+    for (var i = 0; i < arguments.length; i++) {
+        args[i] = arguments[i];
+    }
+
+    return args;
 }
 
 /*
@@ -42,7 +45,7 @@ function returnArgumentsArray() {
  Функция должна принимать другую функцию и возвращать результат вызова переданной функции
  */
 function returnFnResult(fn) {
-	return fn();
+    return fn();
 }
 
 /*
@@ -52,13 +55,14 @@ function returnFnResult(fn) {
  При вызове F, переданное число должно быть увеличено на единицу и возвращено из F
  */
 function returnCounter(number) {
-	if (typeof number != "number") {
-		number = 0;
-	}
-	function counter(){
-		return number += 1;
-	}
-	return counter;
+    if (typeof number != 'number') {
+        number = 0;
+    }
+    function counter() {
+        return number += 1;
+    }
+
+    return counter;
 }
 
 /*
@@ -68,14 +72,16 @@ function returnCounter(number) {
  Функция должна привязать переданные аргументы к функции F и вернуть получившуюся функцию
  */
 function bindFunction(fn) {
-	var args = '';
-	for (var i = 1; i < arguments.length; i++) {
-		args += arguments[i];
-	}
-	var func = fn.bind(null, args);
-	return func;
-}
+    var args = '';
 
+    for (var i = 1; i < arguments.length; i++) {
+        args += arguments[i];
+    }
+
+    var func = fn.bind(null, args);
+    
+    return func;
+}
 
 export {
     returnFirstArgument,
