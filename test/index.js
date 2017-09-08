@@ -1,3 +1,4 @@
+
 import { assert } from 'chai';
 import { randomValue } from '../helper';
 import {
@@ -256,6 +257,7 @@ describe('ДЗ 4 - Работа с DOM', () => {
             where.innerHTML = '';
 
             document.body.removeChild(where);
+
         });
     });
 });

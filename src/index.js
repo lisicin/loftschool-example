@@ -1,3 +1,4 @@
+
 /* ДЗ 4 - работа с DOM */
 
 /**
@@ -240,4 +241,5 @@ export {
     deleteTextNodesRecursive,
     collectDOMStat,
     observeChildNodes
+
 };
