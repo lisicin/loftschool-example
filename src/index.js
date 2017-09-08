@@ -1,3 +1,4 @@
+
 /* ДЗ 3 - работа с массивами и объеектами */
 
 /*
@@ -8,10 +9,13 @@ function forEach(array, fn) {
     for (var i = 0; i < array.length; i++) {
         fn(array[i], i, array);
     }
-}
+ работа с исключениями и отладчиком */
+
+
 
 /*
  Задача 2:
+
  Напишите аналог встроенного метода map для работы с массивами
  */
 function map(array, fn) {
@@ -22,10 +26,12 @@ function map(array, fn) {
     }
 
     return newArr;
+
 }
 
 /*
  Задача 3:
+
  Напишите аналог встроенного метода reduce для работы с массивами
  */
 function reduce(array, fn, initial) {

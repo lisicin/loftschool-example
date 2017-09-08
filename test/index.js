@@ -1,3 +1,4 @@
+
 const nativeSlice = Array.prototype.slice;
 const nativeMap = Array.prototype.map;
 const nativeReduce = Array.prototype.reduce;
@@ -289,6 +290,7 @@ describe('ДЗ 3 - объекты и массивы', () => {
             obj.b = 5;
 
             assert.deepEqual(obj, { a: 4, b: 25 });
+
         });
     });
 });
