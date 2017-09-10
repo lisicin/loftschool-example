@@ -63,7 +63,6 @@ function delegate(target, fn) {
             fn();
         }
     })
->>>>>>> hm5
 }
 
 /**
