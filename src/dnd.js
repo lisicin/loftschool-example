@@ -26,6 +26,7 @@ function createDiv() {
     var div = document.createElement('div'),
         width = Math.floor(Math.random() * 200 + 50),
         height = Math.floor(Math.random() * 200 + 50);
+
     div.className = 'draggable-div';
     div.style.position = 'absolute';
     div.style.width = width + 'px';
@@ -33,6 +34,7 @@ function createDiv() {
     div.style.top = Math.floor(Math.random() * (window.innerHeight - height)) + 'px';
     div.style.left = Math.floor(Math.random() * (window.innerWidth - width)) + 'px';
     div.style.backgroundColor = '#' + ('00' + Math.floor(Math.random() * 4096).toString(16)).substr(-3);
+
     return div;
 }
 
@@ -85,7 +87,7 @@ addDivButton.addEventListener('click', function() {
     // добавить на страницу
     homeworkContainer.appendChild(div);
     // назначить обработчики событий мыши для реализации d&d
-    //addListeners(div); //<<<< закоментировано, поскольку не вижу смысла в обработчике на каждом div'е
+    // addListeners(div); //<<<< закоментировано, поскольку не вижу смысла в обработчике на каждом div'е
     // можно не назначать обработчики событий каждому div в отдельности, а использовать делегирование
     // или использовать HTML5 D&D - https://www.html5rocks.com/ru/tutorials/dnd/basics/
 });

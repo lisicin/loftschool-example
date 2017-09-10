@@ -31,7 +31,7 @@ function removeListener(eventName, target, fn) {
 function skipDefault(eventName, target) {
     target.addEventListener(eventName, function(e) {
         e.preventDefault();
-});
+    });
 }
 
 /**
@@ -45,6 +45,7 @@ function emulateClick(target) {
         'bubbles': true,
         'cancelable': true
     });
+
     target.dispatchEvent(event);
 }
 
@@ -57,7 +58,7 @@ function emulateClick(target) {
  */
 function delegate(target, fn) {
     target.addEventListener('click', function (e) {
-        if (e.target.tagName === "BUTTON") {
+        if (e.target.tagName === 'BUTTON') {
             fn();
         }
     })
