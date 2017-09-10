@@ -67,11 +67,11 @@ function addListeners(target) {
         },
         stop = () => {
             element.style.zIndex = 'auto';
-            element.removeEventListener('mousemove', move)
-            element.removeEventListener('mouseup', stop)
+            document.removeEventListener('mousemove', move)
+            document.removeEventListener('mouseup', stop)
         };
-        element.addEventListener('mousemove', move)
-        element.addEventListener('mouseup', stop);
+        document.addEventListener('mousemove', move)
+        document.addEventListener('mouseup', stop);
         
     });
 }
