@@ -1,3 +1,4 @@
+
 /* ДЗ 6.1 - Асинхронность и работа с сетью */
 
 /**
@@ -36,6 +37,7 @@ function loadAndSortTowns() {
             resolve(list)
         })
         xhr.send();
+
     })
 }
 
