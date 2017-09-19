@@ -80,6 +80,7 @@ describe('ДЗ 7.1 - BOM', () => {
 
         after(() => {
             document.cookie = `test-cookie-name=;expires=${new Date(0)}`
+
         });
     });
 });

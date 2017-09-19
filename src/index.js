@@ -45,4 +45,5 @@ export {
     closeWindow,
     createCookie,
     deleteCookie
+
 };
