@@ -6,12 +6,10 @@ class Cooker {
 
     setFilter(str) {
         this.__filter = str
-        this.__filtering = true
         this.refresh()
     }
 
     addCookie(name, value) {
-        this.__filtering = false
         document.cookie = `${name}=${value};expires=${this.setExpiration()}`
         this.refresh()
     }
@@ -27,11 +25,7 @@ class Cooker {
     }
 
     isAlowed(name, value) {
-        if (this.__filtering) {
-            return name.indexOf(this.__filter) >= 0 || value.indexOf(this.__filter) >= 0
-        }
-
-        return name.indexOf(this.__filter) >= 0
+        return name.indexOf(this.__filter) >= 0 || value.indexOf(this.__filter) >= 0
     }
 
     setExpiration() {

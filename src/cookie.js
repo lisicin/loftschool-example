@@ -39,13 +39,75 @@ let addValueInput = homeworkContainer.querySelector('#add-value-input');
 let addButton = homeworkContainer.querySelector('#add-button');
 let listTable = homeworkContainer.querySelector('#list-table tbody');
 
-import Cooker from './cooker.js'
-let cooks = new Cooker(listTable)
+var cookies = {
+    set: function(name, value, days) {
+        var date = new Date(new Date().getTime() + (3600000 * 24) * (days || 1));
+    
+        document.cookie = `${name}=${value}; path=/; expires=${date}`;
+    },
+
+    get: function() {
+        var obj = {};
+
+        document.cookie.split('; ').map(function (cookie) {
+            cookie.split('=').reduce(function (name, value) {
+                obj[name] = value;
+            });
+        });
+    
+        return obj;
+    },
+    erase: function(name) {
+        this.set(name, 'erase', -1);
+    }    
+}
+
+function addToTable (name, value) {
+    var tr = document.createElement('tr');
+
+    tr.innerHTML = `<td>${name}</td><td>${value}</td><td><button data-delete=${name}>удалить</button></td>`;
+    listTable.appendChild(tr);
+}
+
+function updateTable () {
+    listTable.innerHTML = '';
+    var cookie = cookies.get();
+    var reg = RegExp(filterNameInput.value, 'gi');
+
+    for (let key in cookie) {
+        if (cookie.hasOwnProperty(key)) {
+            if (filterNameInput.value !== '') {
+                if (key.search(reg) !== -1 || cookie[key].search(reg) !== -1) {
+                    addToTable(key, cookie[key]);
+                }
+            } else {
+                addToTable(key, cookie[key]);
+            }
+        }
+    }
+}
 
 filterNameInput.addEventListener('keyup', function() {
-    cooks.setFilter(filterNameInput.value)
+    updateTable();
 });
 
 addButton.addEventListener('click', () => {
-    cooks.addCookie(addNameInput.value, addValueInput.value)
+    var name = addNameInput.value;
+    var value = addValueInput.value;
+
+    if (name !== '' && value !== '') {
+        cookies.set(name, value, 1);
+        updateTable();
+        // addNameInput.value = '';
+        // addValueInput.value = '';
+    }
+});
+
+listTable.addEventListener('click', function (e) {
+    var target = e.target;
+
+    if (target.dataset.delete) {
+        cookies.erase(target.dataset.delete);
+        updateTable();
+    }
 });
